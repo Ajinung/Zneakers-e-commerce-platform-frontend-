@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import nike from "../../Asset/nike-logo.jpg";
+import addidas from "../../Asset/addidas.jpg";
+import reebok from "../../Asset/Reebok_logo.png";
 
 const Popular = () => {
   return (
@@ -7,12 +10,18 @@ const Popular = () => {
       <Container>
         <Wrapper>
           <Top>
-            New Arrivals. <span> This kicks just came in</span>
+            Popular <span> Sneaker brands</span>
           </Top>
           <Bottom>
-            <Product bg="#FFC33A"></Product>
-            <Product bg="#198DAC"></Product>
-            <Product bg="#D1F58C"></Product>
+            <Product bg="#ff893a">
+              <img src={nike} alt="" />
+            </Product>
+            <Product bg="#00040d">
+              <img src={addidas} alt="" />
+            </Product>
+            <Product bg="orangered">
+              <img src={reebok} alt="" />
+            </Product>
           </Bottom>
         </Wrapper>
       </Container>
@@ -27,6 +36,13 @@ const Product = styled.div<{ bg: string }>`
   height: 36vh;
   background-color: ${({ bg }) => bg};
   border-radius: 20px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 
 const Bottom = styled.div`

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import bg from "../../Asset/scatteredForcefields.svg";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -9,9 +9,11 @@ import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 import { newUser } from "../API/Endpoints";
 import { logInUser } from "../GlobalRedux/ReduxState";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const schema = yup
     .object({
@@ -37,12 +39,23 @@ const Register = () => {
     mutationFn: newUser,
     onSuccess: (data) => {
       dispatch(logInUser(data.data));
+      Swal.fire({
+        title: "Registration successful!",
+        // timer: 300,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+        },
+        willClose: () => {
+          navigate("/");
+        },
+      });
     },
   });
 
   const Submit = handleSubmit((data) => {
     post.mutate(data);
-    console.log(data);
+    // console.log(data);
     reset();
   });
 
@@ -74,7 +87,6 @@ const Register = () => {
             </Button>
           </Buttons>
         </Wrapper>
-        <Footer>Developed by Isaac Etor. © {new Date().getFullYear()}</Footer>
       </Container>
     </div>
   );
@@ -82,18 +94,6 @@ const Register = () => {
 
 export default Register;
 
-const Footer = styled.button`
-  width: 100%;
-  border: 0;
-  background-color: transparent;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fffefebd;
-  font-size: 15px;
-`;
 const Button = styled.button<{ color: string; background: string }>`
   background-color: ${(props) => props.background};
   width: 120px;
@@ -148,7 +148,7 @@ const AuthArea = styled.div`
   p {
     margin: 0;
     color: red;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
   }
 
   span {
@@ -167,7 +167,7 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 800;
   color: #fff;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -201,7 +201,7 @@ const Wrapper = styled.form`
 
 const Container = styled.div`
   width: 100%;
-  height: 89.9vh;
+  height: 79.9vh;
   background-color: #000000;
   background-image: url(${bg});
   background-size: cover;

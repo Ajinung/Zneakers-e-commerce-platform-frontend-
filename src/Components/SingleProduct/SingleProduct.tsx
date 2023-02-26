@@ -27,7 +27,6 @@ const SingleProduct = () => {
       0
     );
 
-  const newTotal = totalPrice(readCart);
   return (
     <div>
       <Container>

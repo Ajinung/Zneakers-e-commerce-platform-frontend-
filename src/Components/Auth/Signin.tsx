@@ -38,7 +38,6 @@ const Signin = () => {
             </Button>
           </Buttons>
         </Wrapper>
-        <Footer>Developed by Isaac Etor. © {new Date().getFullYear()}</Footer>
       </Container>
     </div>
   );
@@ -46,20 +45,6 @@ const Signin = () => {
 
 export default Signin;
 
-// const Container = styled.div``
-// const Container = styled.div``
-const Footer = styled.button`
-  width: 100%;
-  border: 0;
-  background-color: transparent;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #f8f7f7bd;
-  font-size: 15px;
-`;
 const Button = styled.button<{ color: string; background: string }>`
   background-color: ${(props) => props.background};
   width: 120px;
@@ -126,7 +111,7 @@ const Logo = styled.div`
   display: flex;
   align-items: center;
   font-size: 3rem;
-  font-weight: 600;
+  font-weight: 800;
   color: #fff;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -159,7 +144,7 @@ const Wrapper = styled.form`
 
 const Container = styled.div`
   width: 100%;
-  height: 89.9vh;
+  height: 79.9vh;
   background-color: #000000;
   background-image: url(${bg});
   background-size: cover;

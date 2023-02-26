@@ -13,7 +13,7 @@ const Header = () => {
     (state) => state.myReducer.totalQuantity
   );
 
-  console.log(readCartQuantity);
+  // console.log(readCartQuantity);
 
   return (
     <div>
@@ -31,7 +31,7 @@ const Header = () => {
           {userdata?.name ? (
             <Auth>
               <p>
-                cart <Items>{readCartQuantity}</Items>
+                <FaOpencart /> <Items>{readCartQuantity}</Items>
               </p>
               <NavLink to="/signin" style={{ textDecoration: "none" }}>
                 <button
@@ -45,9 +45,6 @@ const Header = () => {
             </Auth>
           ) : (
             <Auth>
-              <p>
-                <FaOpencart /> <Items>{readCartQuantity}</Items>
-              </p>
               <NavLink to="/signin" style={{ textDecoration: "none" }}>
                 <button>sign in</button>
               </NavLink>
@@ -119,6 +116,7 @@ const Logo = styled.h1`
   margin: 0;
   text-transform: uppercase;
   color: #000;
+  font-weight: 800;
 `;
 
 const Wrapper = styled.div`

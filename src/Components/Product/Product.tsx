@@ -19,7 +19,7 @@ const Product = () => {
       <Container>
         <Wrapper>
           <Top>
-            Popular <span> Zneakers</span>
+            These kicks <span> just got in</span>
           </Top>
           <Bottom>
             {gettingProducts?.data?.data.map((props: any) => (
@@ -147,9 +147,10 @@ const Top = styled.h1`
   margin: 0;
   color: #000;
   font-size: 2.5rem;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 20px;
   gap: 10px;
+  text-transform: capitalize;
 
   span {
     color: orangered;

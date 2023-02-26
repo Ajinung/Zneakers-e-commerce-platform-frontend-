@@ -13,7 +13,6 @@ const Home = () => {
       <Popular />
       <Product />
       <Special />
-      <Footer />
     </div>
   );
 };
