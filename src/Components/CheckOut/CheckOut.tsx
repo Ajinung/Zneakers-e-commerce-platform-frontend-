@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {
   addToCart,
+  emptyCart,
   removeFromCart,
   removeItem,
 } from "../GlobalRedux/ReduxState";
@@ -60,6 +61,13 @@ const CheckOut = () => {
                   </Desc>
                 </CartItem>
               ))}
+              <Empty
+                onClick={() => {
+                  dispatch(emptyCart());
+                }}
+              >
+                empty cart
+              </Empty>
             </Right>
             <Left>
               <SummaryWrapper>
@@ -92,6 +100,17 @@ const CheckOut = () => {
 
 export default CheckOut;
 
+const Empty = styled.button`
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  text-transform: capitalize;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
 const Price = styled.button`
   width: 100px;
   height: 5vh;
