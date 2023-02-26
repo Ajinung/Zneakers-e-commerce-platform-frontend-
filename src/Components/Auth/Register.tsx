@@ -38,16 +38,16 @@ const Register = () => {
     mutationKey: ["createUser"],
     mutationFn: newUser,
     onSuccess: (data) => {
-      dispatch(logInUser(data.data));
       Swal.fire({
         title: "Registration successful!",
-        // timer: 300,
+        timer: 300,
         timerProgressBar: true,
         didOpen: () => {
           Swal.showLoading();
         },
         willClose: () => {
           navigate("/");
+          dispatch(logInUser(data.data));
         },
       });
     },
@@ -108,9 +108,9 @@ const Button = styled.button<{ color: string; background: string }>`
   transition: all 350ms;
 
   :hover {
-    border: 2px solid #da5d00;
+    border: 2px solid #000;
     background-color: transparent;
-    color: #da5d00;
+    color: #000;
     cursor: pointer;
   }
 `;
@@ -126,7 +126,7 @@ const Buttons = styled.div`
 const Account = styled(NavLink)`
   margin-left: 5px;
   text-decoration: none;
-  color: #da5d00;
+  color: orangered;
 `;
 
 const AuthArea = styled.div`
@@ -174,7 +174,7 @@ const Logo = styled.div`
 
   @media screen and (max-width: 768px) {
     font-size: 2rem;
-    color: #da5d00;
+    color: #000;
     margin-top: 30px;
   }
 `;

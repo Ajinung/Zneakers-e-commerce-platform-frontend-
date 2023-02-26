@@ -2,8 +2,41 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import bg from "../../Asset/scatteredForcefields.svg";
+// import { useMutation } from "@tanstack/react-query";
+// import { loginUser } from "../API/Endpoints";
+// import { useAppDispatch } from "../GlobalRedux/Store";
+// import * as yup from "yup";
+// import { useForm } from "react-hook-form/dist/useForm";
+// import { yupResolver } from "@hookform/resolvers/yup";
 
 const Signin = () => {
+  // const dispatch = useAppDispatch();
+
+  // const schema = yup
+  //   .object({
+  //     email: yup.string().email().required("please provide your email"),
+  //     password: yup.string().required("please provide your password").min(4),
+  //   })
+  //   .required();
+
+  // type formdata = yup.InferType<typeof schema>;
+
+  // const {
+  //   handleSubmit,
+  //   formState: { errors },
+  //   reset,
+  //   register,
+  // } = useForm<formdata>({
+  //   resolver: yupResolver(schema),
+  // });
+
+  // const login = useMutation({
+  //   mutationKey: ["loginData"],
+  //   mutationFn: loginUser,
+  //   onSuccess: ((data) =>
+  //     dispatch(loginUser(data.data))
+  //   )
+  // })
   return (
     <div>
       <Container>

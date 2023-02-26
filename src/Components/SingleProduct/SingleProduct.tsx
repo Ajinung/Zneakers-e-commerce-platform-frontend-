@@ -14,6 +14,7 @@ const SingleProduct = () => {
 
   const readSingleIten = readCart.filter((el) => el._id === id);
 
+  //tanstac function to query data from database
   const oneProduct = useQuery({
     queryKey: ["singleProduct", id],
     queryFn: () => {
@@ -38,7 +39,7 @@ const SingleProduct = () => {
             <TextWrap>
               <h1>{oneProduct?.data?.data?.title}</h1>
               <p>color: {oneProduct?.data?.data?.color}</p>
-              <p>Total Price: {totalPrice(readCart)}</p>
+              <p>Total Price: N{totalPrice(readCart)}</p>
               <Qty>
                 <Button
                   disabled={
@@ -51,6 +52,7 @@ const SingleProduct = () => {
                 >
                   +
                 </Button>
+                {/* <Text>{readSingleIten[0]?.cartQuantity}</Text> */}
                 <Text>{readSingleIten[0]?.cartQuantity}</Text>
                 <Button
                   onClick={() => {
@@ -183,6 +185,7 @@ const Right = styled.div`
 const Container = styled.div`
   width: 100%;
   background-color: #f3f1f1;
+  margin-bottom: 60px;
 `;
 const Wrapper = styled.div`
   width: 95%;

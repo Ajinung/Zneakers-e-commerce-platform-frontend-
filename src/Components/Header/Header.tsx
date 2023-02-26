@@ -23,25 +23,26 @@ const Header = () => {
             <Logo>Zneakers</Logo>
           </NavLink>
           <Navigation>
-            <Nav>Home</Nav>
-            <Nav>About</Nav>
-            <Nav>Product</Nav>
-            <Nav>Shop</Nav>
+            <Nav to="/">Home</Nav>
+            <Nav to="/about">About</Nav>
+            <Nav to="/allproducts">Product</Nav>
+            <Nav to="/allproducts">Shop</Nav>
           </Navigation>
           {userdata?.name ? (
             <Auth>
-              <p>
-                <FaOpencart /> <Items>{readCartQuantity}</Items>
-              </p>
-              <NavLink to="/signin" style={{ textDecoration: "none" }}>
-                <button
-                  onClick={() => {
-                    dispatch(logOutUser());
-                  }}
-                >
-                  sign out
-                </button>
+              <NavLink to="/checkout" style={{ textDecoration: "none" }}>
+                <p>
+                  <FaOpencart /> <Items>{readCartQuantity}</Items>
+                </p>
               </NavLink>
+
+              <button
+                onClick={() => {
+                  dispatch(logOutUser());
+                }}
+              >
+                sign out
+              </button>
             </Auth>
           ) : (
             <Auth>
@@ -93,10 +94,13 @@ const Auth = styled.div`
   }
 `;
 
-const Nav = styled.p`
+const Nav = styled(NavLink)`
   margin: 0;
-  font-size: 16.7px;
+  font-size: 15.32px;
   transition: all 350ms ease;
+  text-decoration: none;
+  color: #000;
+
   :hover {
     cursor: pointer;
     border-bottom: 1px solid #000;

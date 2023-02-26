@@ -9,8 +9,8 @@ import { useAppDispatch, useAppSelector } from "../GlobalRedux/Store";
 import pic from "../../Asset/yeezy.jpg";
 
 const CheckOut = () => {
-  const dispatch = useAppDispatch();
   const readCart = useAppSelector((state) => state.myReducer.cart);
+  const dispatch = useAppDispatch();
 
   return (
     <div>
@@ -50,9 +50,9 @@ const CheckOut = () => {
                     <SoldOut>
                       <button>in stock</button>
                       <p
-                      // onClick={() => {
-                      //   dispatch(clearCart);
-                      // }}
+                        onClick={() => {
+                          dispatch(clearCart(props));
+                        }}
                       >
                         remove
                       </p>
@@ -293,4 +293,5 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   width: 100%;
+  margin-bottom: 60px;
 `;

@@ -77,9 +77,9 @@ const Container = styled.div`
   width: 95%;
   margin: auto;
   background-color: #000;
-  margin-top: 60px;
-  margin-bottom: 60px;
   border-radius: 20px;
+  margin-bottom: 60px;
+  margin-top: 60px;
   overflow: hidden;
   display: flex;
   flex-wrap: wrap;
