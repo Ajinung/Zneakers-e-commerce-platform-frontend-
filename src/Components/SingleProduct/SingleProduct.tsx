@@ -1,6 +1,7 @@
 import React from "react";
 import pic from "../../Asset/yeezy.jpg";
 import styled from "styled-components";
+import { AiFillStar } from "react-icons/ai";
 import { NavLink, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { aProduct } from "../API/Endpoints";
@@ -39,6 +40,13 @@ const SingleProduct = () => {
             <TextWrap>
               <h1>{oneProduct?.data?.data?.title}</h1>
               <p>color: {oneProduct?.data?.data?.color}</p>
+              <Rate>
+                <AiFillStar style={{ color: "orange", fontSize: "23px" }} />
+                <AiFillStar style={{ color: "orange", fontSize: "23px" }} />
+                <AiFillStar style={{ color: "orange", fontSize: "23px" }} />
+                <AiFillStar style={{ color: "orange", fontSize: "23px" }} />
+                <AiFillStar style={{ color: "orange", fontSize: "23px" }} />
+              </Rate>
               <p>Total Price: N{totalPrice(readCart)}</p>
               <Qty>
                 <Button
@@ -78,6 +86,11 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
+
+const Rate = styled.div`
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
 
 const CheckOut = styled.button`
   padding: 10px 30px;

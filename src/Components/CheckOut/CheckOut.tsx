@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import {
   addToCart,
-  clearCart,
   removeFromCart,
+  removeItem,
 } from "../GlobalRedux/ReduxState";
 import { useAppDispatch, useAppSelector } from "../GlobalRedux/Store";
 import pic from "../../Asset/yeezy.jpg";
@@ -48,14 +48,14 @@ const CheckOut = () => {
                       <Price>N{props.price}</Price>
                     </Title>
                     <SoldOut>
-                      <button>in stock</button>
-                      <p
+                      <p>in stock</p>
+                      <button
                         onClick={() => {
-                          dispatch(clearCart(props));
+                          dispatch(removeItem(props));
                         }}
                       >
                         remove
-                      </p>
+                      </button>
                     </SoldOut>
                   </Desc>
                 </CartItem>
@@ -135,22 +135,22 @@ const SoldOut = styled.div`
   align-items: center;
 
   button {
-    width: 100px;
-    height: 5vh;
-    border-radius: 20px;
-    margin: 0;
-    border: 2px solid #00000027;
-    color: #0000009e;
-  }
-
-  p {
     color: green;
     font-weight: 600;
     font-size: 17px;
+    border: 0;
 
     :hover {
       cursor: pointer;
     }
+  }
+
+  p {
+    padding: 3px 8px;
+    border-radius: 20px;
+    margin: 0;
+    border: 2px solid #00000027;
+    color: #0000009e;
   }
 `;
 
@@ -165,6 +165,7 @@ const Title = styled.div`
     margin: 0;
     font-size: 1.24rem;
     font-weight: 600;
+    width: 200px;
   }
 `;
 

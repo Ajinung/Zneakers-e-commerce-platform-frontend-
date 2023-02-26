@@ -62,10 +62,23 @@ export const ReduxState = createSlice({
       const check = state.cart.findIndex((el) => el._id === payload._id);
       state.totalQuantity -= state.cart[check].cartQuantity;
     },
+    removeItem: (state, { payload }: PayloadAction<cartData>) => {
+      state.cart = state.cart.filter((el) => el._id !== payload._id);
+    },
+    // getTotal: (state, { payload }: PayloadAction<cartData>) => {
+    //   state.totalPrice = state.totalQuantity * state.totalPrice;
+    // },
   },
 });
 
-export const { logInUser, logOutUser, addToCart, removeFromCart, clearCart } =
-  ReduxState.actions;
+export const {
+  logInUser,
+  logOutUser,
+  addToCart,
+  removeFromCart,
+  clearCart,
+  removeItem,
+  // getTotal,
+} = ReduxState.actions;
 
 export default ReduxState.reducer;
